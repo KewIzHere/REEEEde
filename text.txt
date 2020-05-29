@@ -126,7 +126,7 @@ local function CAZDEPV_fake_script() -- Close.LocalScript
 	
 	for i = 1,10 do
 	   wait(0.02)
-	   menu.Position = menu.Position + UDim2.new(0.0051,0 , 0,0)
+	   menu.Position = menu.Position + UDim2.new(0.0061,0 , 0,0)
 	end
 	debouce = 2
 	      script.Parent.Text = "<"
@@ -137,7 +137,7 @@ local function CAZDEPV_fake_script() -- Close.LocalScript
 	
 	for i = 1,10 do
 	   wait(0.02)
-	   menu.Position = menu.Position - UDim2.new(0.0051,0 , 0,0)
+	   menu.Position = menu.Position - UDim2.new(0.0061,0 , 0,0)
 	        script.Parent.Text = ">"
 	        toggle = false
 	end
