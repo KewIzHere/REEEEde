@@ -1,0 +1,150 @@
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local Close = Instance.new("TextButton")
+local Up = Instance.new("Frame")
+local Handle = Instance.new("Frame")
+local Grab = Instance.new("TextButton")
+local TextLabel = Instance.new("TextLabel")
+local TextLabel_2 = Instance.new("TextLabel")
+local TextLabel_3 = Instance.new("TextLabel")
+
+--Properties:
+
+ScreenGui.Parent = game.CoreGui
+
+Close.Name = "Close"
+Close.Parent = ScreenGui
+Close.BackgroundColor3 = Color3.fromRGB(37, 37, 59)
+Close.Position = UDim2.new(-0.000381953083, 0, 0.474528283, 0)
+Close.Size = UDim2.new(0, 23, 0, 22)
+Close.Font = Enum.Font.SourceSans
+Close.Text = ">"
+Close.TextColor3 = Color3.fromRGB(255, 255, 255)
+Close.TextSize = 14.000
+Close.Active = true
+
+Up.Name = "Up"
+Up.Parent = Close
+Up.BackgroundColor3 = Color3.fromRGB(37, 37, 59)
+Up.Position = UDim2.new(-4.347826, 0, -0.0205612481, 0)
+Up.Size = UDim2.new(0, 100, 0, 19)
+
+Handle.Name = "Handle"
+Handle.Parent = Up
+Handle.BackgroundColor3 = Color3.fromRGB(29, 29, 47)
+Handle.Position = UDim2.new(0, 0, 1.00155175, 0)
+Handle.Size = UDim2.new(0, 100, 0, 109)
+
+Grab.Name = "Grab"
+Grab.Parent = Handle
+Grab.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+Grab.Position = UDim2.new(0.779999971, 0, 0.0715661049, 0)
+Grab.Size = UDim2.new(0, 22, 0, 22)
+Grab.Font = Enum.Font.SourceSans
+Grab.Text = ""
+Grab.TextColor3 = Color3.fromRGB(0, 0, 0)
+Grab.TextSize = 14.000
+
+TextLabel.Parent = Handle
+TextLabel.BackgroundColor3 = Color3.fromRGB(29, 29, 47)
+TextLabel.Position = UDim2.new(0, 0, 0.0807405561, 0)
+TextLabel.Size = UDim2.new(0, 78, 0, 20)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "Grab Items"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextSize = 14.000
+
+TextLabel_2.Parent = Up
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(27, 42, 53)
+TextLabel_2.BorderColor3 = Color3.fromRGB(27, 42, 53)
+TextLabel_2.Size = UDim2.new(0, 100, 0, 17)
+TextLabel_2.Font = Enum.Font.SourceSans
+TextLabel_2.Text = "A Bizarre Grab"
+TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.TextSize = 14.000
+
+TextLabel_3.Parent = Up
+TextLabel_3.BackgroundColor3 = Color3.fromRGB(27, 42, 53)
+TextLabel_3.BorderColor3 = Color3.fromRGB(27, 42, 53)
+TextLabel_3.Position = UDim2.new(0, 0, 5.84210539, 0)
+TextLabel_3.Size = UDim2.new(0, 100, 0, 17)
+TextLabel_3.Font = Enum.Font.SourceSans
+TextLabel_3.Text = "By Kew#6736"
+TextLabel_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.TextSize = 14.000
+
+-- Scripts:
+
+local function WPPL_fake_script() -- Grab.LocalScript 
+	local script = Instance.new('LocalScript', Grab)
+
+	local toggle = true
+	
+	script.Parent.MouseButton1Click:Connect(function()
+	    if(not toggle)then
+	      script.Parent.BackgroundColor3 = Color3.fromRGB(0,120,0)
+	      toggle = true
+	
+	     _G.Item = true
+	              while _G.Item do wait()
+	                 for i,v in pairs(game.Workspace:GetChildren()) do
+	                  if v:IsA"Tool" then
+	           game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Handle.CFrame
+	       end
+	   end
+	end
+	      
+	     elseif(toggle) then
+	        script.Parent.BackgroundColor3 = Color3.fromRGB(120,0,0)
+	        toggle = false
+	
+	     _G.Item = false
+	              while _G.Item do wait()
+	                 for i,v in pairs(game.Workspace:GetChildren()) do
+	                  if v:IsA"Tool" then
+	           game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Handle.CFrame
+	       end
+	   end
+	end
+	
+	end
+	end)
+end
+coroutine.wrap(WPPL_fake_script)()
+local function CAZDEPV_fake_script() -- Close.LocalScript 
+	local script = Instance.new('LocalScript', Close)
+
+	local debouce = 0
+	local menu = script.Parent.Parent.Close
+	local toggle = true
+	
+	script.Parent.MouseButton1Click:Connect(function()
+	if debouce == 0 then
+	   debouce = 1
+	
+	
+	for i = 1,10 do
+	   wait(0.02)
+	   menu.Position = menu.Position + UDim2.new(0.0051,0 , 0,0)
+	end
+	debouce = 2
+	      script.Parent.Text = "<"
+	      toggle = true
+	
+	elseif debouce == 2 then
+	   debouce = 1
+	
+	for i = 1,10 do
+	   wait(0.02)
+	   menu.Position = menu.Position - UDim2.new(0.0051,0 , 0,0)
+	        script.Parent.Text = ">"
+	        toggle = false
+	end
+	debouce = 0
+	
+	end
+	
+	end)
+end
+coroutine.wrap(CAZDEPV_fake_script)()
