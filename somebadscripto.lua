@@ -23,7 +23,7 @@ wait(1)
     print("note: press numpad2 when u respawned, very fast cause it will kill you")
     print("u can use the same script, auto update B)")
     print("the script spys who executed it, dont even try to share it with someone or sell it")
-    print("enjoy :)   heh")
+    print("enjoy :)")
     
 --dupe
 
