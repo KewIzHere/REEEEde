@@ -19,6 +19,7 @@ wait(1)
     print("removed keybind 'B' cause its useless now...")
     print("added cooldown(2.5) for u guys, /save command sometimes not working")
     print("note: press numpad2 when u respawned, very fast cause it will kill you")
+    print("u can use the same script, auto update B)")
     
     
 --dupe
