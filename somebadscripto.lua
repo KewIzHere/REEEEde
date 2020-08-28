@@ -11,20 +11,18 @@ local m = game.Players.LocalPlayer:GetMouse()
 
 wait(1)
 
-    warn("made by Kew#6736")
     print("made by Kew#6736")
     print("-------------------------------------------------------------------------------------------------------------------------------------------------")
     print("quick tutorial, hold the item u want to dupe, type in chat '/save' and done, if didn't work try again, if still not workin dm me in discord")
     print("-------------------------------------------------------------------------------------------------------------------------------------------------")
     print("Update - Position saver, press numpad1 to save, then press numpad2 to teleport, sometimes can kill you")
     print("Update - added pick up all droped items, press numpad4")
-    print("added equip all items at once, press numpad3 to equip all items, laggy sometimes, wait 5 sec before duping")
-    print("removed keybind 'B' cause its useless now...")
-    print("added cooldown(2.5) for u guys, /save command sometimes not working")
+    print("Update - added equip all items at once, press numpad3 to equip all items, laggy sometimes, wait 5 sec before duping")
+    print("Update - removed keybind 'B' cause its useless now...")
+    print("Update - added cooldown(2.5) for u guys, /save command sometimes not working")
+    print("Update - u can use the same script, auto update B)")
     print("note: press numpad2 when u respawned, very fast cause it will kill you")
-    print("u can use the same script, auto update B)")
     print("the script spys who executed it, dont even try to share it with someone or sell it")
-    print("enjoy :)")
     
 --dupe
 
