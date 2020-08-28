@@ -17,6 +17,7 @@ wait(1)
     print("quick tutorial, hold the item u want to dupe, type in chat '/save' and done, if didn't work try again, if still not workin dm me in discord")
     print("-------------------------------------------------------------------------------------------------------------------------------------------------")
     print("Update - Position saver, press numpad1 to save, then press numpad2 to teleport, sometimes can kill you")
+    print("Update - added pick up all droped items, press numpad4")
     print("added equip all items at once, press numpad3 to equip all items, laggy sometimes, wait 5 sec before duping")
     print("removed keybind 'B' cause its useless now...")
     print("added cooldown(2.5) for u guys, /save command sometimes not working")
@@ -70,5 +71,18 @@ if inputObject.KeyCode == Enum.KeyCode.KeypadThree then
     end
 end
 end
+end
+game:GetService("UserInputService").InputBegan:connect(onKeyPress)
+
+--teleport all droped items to you
+function onKeyPress(inputObject, gameProcessedEvent)
+if inputObject.KeyCode == Enum.KeyCode.KeypadFour then
+    for i,v in pairs(game.Workspace:GetChildren()) do
+	                  if v:IsA"Tool" then
+	           v.Handle.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+	               end
+           end
+    end
+
 end
 game:GetService("UserInputService").InputBegan:connect(onKeyPress)
